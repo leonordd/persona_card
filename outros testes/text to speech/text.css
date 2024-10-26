@@ -1,0 +1,9 @@
+#timings{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30vw;
+    height: 100vh;
+    display: block;
+    border-left: 1px solid grey;
+  }
