@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../nav_bar/styles.css" />
+  </head>
+  <body>
+    <header class="flex-1">
+      <div class="flex-1 mobile-header">
+        <a href="/">
+          <img src="images/logo.svg" alt="snap logo" />
+        </a>
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="menu-wrapper"
+          class=""
+          id="open-menu"
+        >
+          <img
+            src="images/icon-menu.svg"
+            alt="open navigation menu"
+            id="open-menu"
+          />
+        </button>
+      </div>
+      <div class="hide transparent" id="menu-container" aria-hidden="true">
+        <nav class="bg-white">
+          <ul
+            class="navigation-menu"
+            role="menu"
+            id="menu-wrapper"
+            aria-labelledby="open-menu"
+          >
+            <li class="menu-icon">
+              <button aria-expanded="false" class="" id="close-menu">
+                <img
+                  src="images/icon-close-menu.svg"
+                  alt="close navigation menu"
+                  id="close-menu"
+                />
+              </button>
+            </li>
+            <li>
+              <button class="flex-1 flex-3" aria-expanded="false">
+                <span>Features</span>
+                <img src="images/icon-arrow-down.svg" alt="caret-down" />
+              </button>
+            </li>
+            <li class="flex-1 flex-3">
+              <button class="flex-1 flex-3" aria-expanded="false">
+                <span>Company</span>
+                <img src="images/icon-arrow-down.svg" alt="caret-down" />
+              </button>
+            </li>
+            <li>
+              <a href="/"> Careers </a>
+            </li>
+            <li><a href="/">About</a></li>
+            <li class="actions">
+              <ul class="action-btns flex-1">
+                <li>
+                  <a href="/">Login</a>
+                </li>
+                <li class="register-btn">
+                  <a href="/">Register</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <script src="../nav_bar/script.js"></script>
+  </body>
+</html>

@@ -1,5 +1,103 @@
 nav{
     background-color: var(--blue);
-    padding:0.5%;
-    color:white;
+    padding:1% 3%;
+    color:var(--branco);
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.container{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2%;
+}
+
+#texto{
+    grid-column-start: 3;
+    align-self:center;
+}
+
+h1{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-bottom:52px;
+    font-size:2.62rem;
+    font-weight: 900;
+}
+
+h2{
+    font-size: 1.60;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 132.316%; 
+    margin-bottom: 10px;
+}
+
+#texto p{
+    font-size: 1.20rem;
+    margin-bottom:36px;
+    line-height: 136.3%; 
+}
+
+img{
+    grid-column-start: 1;
+}
+
+#logo{
+    display:flex;
+    align-items: center;
+    width:100px;
+    gap:10px;
+}
+
+#logotipo{
+   font-size:1.20rem;
+   line-height:1.3rem;
+}
+
+ul{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+li{
+    margin-left: 52px;
+}
+
+li:last-child{
+    margin-right: 21px;
+}
+
+button{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+    display:flex;
+    align-items: center; 
+    text-align: left;
+    gap: 8px;
+    padding:3px;
+}
+
+button:hover{
+    border-bottom: 2.5px solid var(--branco);
+    border-top: 2.5px solid transparent;
+}
+
+
+.icon{
+   max-width:20px;
+}
+
+button span{
+    font-size: 1.3rem;
+}
+
+a{
+    text-decoration: none;
+    color: var(--branco)
 }

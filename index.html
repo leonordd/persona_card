@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="img/png" href="data/icons/access.svg">
 
     <title>Persona Card</title>
 
@@ -16,14 +17,37 @@
     
   </head>
   <body>
-    <nav>
-      <div id="logo">
-        <img src="data/access.svg" alt="accessibility icon" width="39" height="43.33">
-        <h6>Persona Card</h6>
-      </div>
-    </nav>
-    <main>
-        <h1>Global citizen with low vision</h1>
+    <header>
+      <nav>
+        <a href="index.html" id="logo">          
+          <img src="data/access.svg" alt="accessibility icon" width="39" height="43.33">
+          <p id="logotipo">Persona Card</p>
+        </a>
+        <ul role="menu" id="menu-wrapper" class="navigation-menu"  aria-labelledby="open-menu">
+          <li>
+            <button>
+              <img class="icon" src="data/icons/text-to-speech.svg" alt="text-to-speech icon representation">
+              <span>Listen</span>
+            </button></li>
+          <li><button>
+            <img class="icon" src="data/icons/contrast.svg" alt="contrast icon representation" >
+            <span>Change Contrast</span>
+          </button></li>
+          <li><button>
+            <img class="icon" src="data/icons/letter.svg" alt="enlarge text icon representation" >
+            <span>Enlarge Text</span>
+          </button></li>
+          <li><button>
+            <img class="icon" src="data/icons/mask.svg" alt="mask page icon representation" >
+            <span>Page Mask</span>
+          </button></li>
+        </ul>
+      </nav>
+   </header>
+    <main class="container">
+      <h1>Global citizen with low vision</h1>
+      <img src="data/card.jpg" width="" height="" alt="adult student working on it's computer">
+      <div id="texto">
         <h2>Key-characteristics and abilities</h2>
         <p>These days, Singapore is a center of the world, and Vishnu is one of its global citizens. After graduating from one of India’s technology colleges, he went to a postgraduate program at the National University of Malaysia. His work on visualizing data landed him a job with a multinational medical technology company. </p>
 
@@ -34,7 +58,7 @@
         <p>He can adjust his monitor and his phone, but many of the technical programs he uses don’t have many options, so he has started using a screen magnifier and high-contrast mode.
           He has several mobile phones. One connects him to his family in India, one is for work, and one is for personal use. He’s lucky to have good bandwidth at home and at work. Even so, downloading large pages from European or U.S. servers can be slow. But, if he had one wish, it would be that people would write technical papers and websites more clearly. 
           His English is good, but idiomatic expressions can still be hard.</p>
-        <img src="data/card.jpg" width="" height="" alt="adult student working on it's computer">
+      </div>
     </main>
     <script src="js/geral.js"></script>
   </body>
