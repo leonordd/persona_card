@@ -15,7 +15,19 @@
 }
   
   main{
-    margin:3% 10%;
+    margin:0 10% 3% 10%;
+    padding-top:150px;
   }
 
-  
+  footer{
+    margin-top:100px;
+    margin-bottom:100px;
+    text-align: center;
+  }
+
+  footer a{
+    background-color:var(--blue);
+    padding: 5px 10px;
+    border-radius:5px;
+    font-size: 1.2rem;
+  }

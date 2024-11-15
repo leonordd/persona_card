@@ -14,39 +14,57 @@
 
     <link rel="stylesheet" href="css/geral.css" />
     <link rel="stylesheet" href="css/card_styles.css" />
+    <link rel="stylesheet" href="css/nav_bar.css" />
+    <!--<link rel="stylesheet" href="outros testes/nav_bar/styles.css"/>-->
     
   </head>
   <body>
-    <header>
+    <header id="top">
       <nav>
-        <a href="index.html" id="logo">          
-          <img src="data/access.svg" alt="accessibility icon" width="39" height="43.33">
-          <p id="logotipo">Persona Card</p>
-        </a>
-        <ul role="menu" id="menu-wrapper" class="navigation-menu"  aria-labelledby="open-menu">
-          <li>
-            <button>
-              <img class="icon" src="data/icons/text-to-speech.svg" alt="text-to-speech icon representation">
-              <span>Listen</span>
-            </button></li>
-          <li><button>
-            <img class="icon" src="data/icons/contrast.svg" alt="contrast icon representation" >
-            <span>Change Contrast</span>
-          </button></li>
-          <li><button>
-            <img class="icon" src="data/icons/letter.svg" alt="enlarge text icon representation" >
-            <span>Enlarge Text</span>
-          </button></li>
-          <li><button>
-            <img class="icon" src="data/icons/mask.svg" alt="mask page icon representation" >
-            <span>Page Mask</span>
-          </button></li>
-        </ul>
+        <div class="mobile-header" >
+          <a href="index.html" id="logo">          
+            <img src="data/access.svg" alt="accessibility icon" width="39" height="43.33">
+            <p id="logotipo">Persona Card</p>
+          </a>
+          <button aria-expanded="false" aria-haspopup="true" aria-controls="menu-wrapper" class="" id="open-menu">
+            <img src="data/icons/closed.svg" alt="open navigation menu" id="open-menu"/>
+          </button>
+        </div>
+
+        <div class="hide transparent" id="menu-container" aria-hidden="true"> 
+          <div class="bg-white">
+            <ul role="menu" id="menu-wrapper" class="navigation-menu"  aria-labelledby="open-menu">
+              <li class="menu-icon">
+                <button aria-expanded="false" class="" id="close-menu">
+                  <img src="data/icons/opened.svg" alt="close navigation menu" id="close-menu">
+                </button>
+              </li>
+              <li>
+                <button>
+                  <img class="icon" src="data/icons/text-to-speech.svg" alt="text-to-speech icon representation">
+                  <span>Listen</span>
+                </button></li>
+              <li><button>
+                <img class="icon" src="data/icons/contrast.svg" alt="contrast icon representation" >
+                <span>Change Contrast</span>
+              </button></li>
+              <li><button>
+                <img class="icon" src="data/icons/letter.svg" alt="enlarge text icon representation" >
+                <span>Enlarge Text</span>
+              </button></li>
+              <li><button>
+                <img class="icon" src="data/icons/mask.svg" alt="mask page icon representation" >
+                <span>Page Mask</span>
+              </button></li>
+            </ul>
+          </div>
+        </div>
+
       </nav>
    </header>
     <main class="container">
       <h1>Global citizen with low vision</h1>
-      <img src="data/card.jpg" width="" height="" alt="adult student working on it's computer">
+      <img src="data/card.jpg" width="" height="" alt="adult student working on it's computer" id="img-card">
       <div id="texto">
         <h2>Key-characteristics and abilities</h2>
         <p>These days, Singapore is a center of the world, and Vishnu is one of its global citizens. After graduating from one of India’s technology colleges, he went to a postgraduate program at the National University of Malaysia. His work on visualizing data landed him a job with a multinational medical technology company. </p>
@@ -60,6 +78,8 @@
           His English is good, but idiomatic expressions can still be hard.</p>
       </div>
     </main>
+    <footer><a href="#top">Back to top</a></footer>
     <script src="js/geral.js"></script>
+    <script src="js/nav_bar.js"></script>
   </body>
 </html>
