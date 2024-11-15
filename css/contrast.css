@@ -1,0 +1,20 @@
+ /* Botão ativo com borda */
+ .theme-btn {
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: border 0.2s;
+  }
+
+  .theme-btn.active {
+    border-radius: 5px;
+    background-color: var(--back-top);
+    color: var(--text-top);
+    border: 1px solid var(--back-top);
+  }
+
+  /* Aparência ao passar o mouse (opcional) */
+  .theme-btn:hover {
+    /*border: 1px solid #555;*/
+    border: 1px solid var(--back-top); /* Cor da borda */
+  }

@@ -5,42 +5,11 @@ https://blog.stackademic.com/how-to-create-an-accessible-and-responsive-navigati
 
   /*MOBILE_____________________________*/
   @media screen and (max-width: 767px) {
-     
-  /*button,
-  a {
-    all: unset;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }*/
-  
-  /*button:hover,
-  a:hover{
-    font-weight: 700;
-  }*/
-  
-  /*a:focus-visible,
-  button:focus-visible {
-    outline: 2px solid hsl(0, 0%, 8%);
-    outline-offset: 3px;
-  }*/
-  
-  /*.flex-1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }*/
-  
   .flex-3 {
     align-items: center;
     gap: 10px;
     width: auto;
   }
-  
-  /*header {
-    padding: 20px 15px;
-    position: relative;
-  }*/
   
   .hide,
   .nav-menu {
@@ -56,7 +25,7 @@ https://blog.stackademic.com/how-to-create-an-accessible-and-responsive-navigati
   
   .bg-white {
     height: 100vh;
-    background-color: var(--blue);
+    background-color: var(--nav_bar);
     position: relative;
     width: 67%;
     padding: 10px 15px;
@@ -82,83 +51,18 @@ https://blog.stackademic.com/how-to-create-an-accessible-and-responsive-navigati
     justify-content: space-between;
   }
   
-  /*.actions {
-    align-self: center;
-    width: 100%;
-  }
-  
-  .action-btns {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .action-btns li,
-  .action-btns li a {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .action-btns li a {
-    display: block;
-    padding: 10px 0;
-  }*/
-  
-  /*.register-btn {
-    border-radius: 10px;
-    border: 1px solid hsl(0, 0%, 41%);
-  }*/
-  
   }
 
-  @media only screen and (min-width:601px) and (max-width: 768px) {
+  /*@media only screen and (min-width:601px) and (max-width: 768px) {
 
-}
+  }*/
 
   /*DESKTOP*/
   @media screen and (min-width: 768px) {
-    /*header {
-      gap: 50px;
-    }*/
-    /*.mobile-header {
-      max-width: 84px;
-    }*/
-  
     #open-menu,
     .menu-icon {
       display: none;
     }
-
-  
-    /*.transparent {
-      display: block;
-      background: none;
-      position: static;
-    }
-  
-    .bg-white {
-      background: inherit;
-      width: 100%;
-      margin: 0;
-      height: auto;
-    }
-  
-    .navigation-menu,
-    .action-btns {
-      flex-direction: row;
-      align-items: center;
-    }
-  
-    /*.actions {
-      align-self: flex-end;
-      max-width: 20%;
-      margin-left: auto;
-    }
-    
-    .register-btn
-    {
-      padding: 0 8px;
-    }*/
   } 
 
 
@@ -166,7 +70,7 @@ https://blog.stackademic.com/how-to-create-an-accessible-and-responsive-navigati
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: var(--background);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -179,7 +83,7 @@ https://blog.stackademic.com/how-to-create-an-accessible-and-responsive-navigati
   
   /* Estilo dos links dentro do dropdown */
   .dropdown-content a {
-    color: black;
+    color: var(--text-color);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -187,6 +91,6 @@ https://blog.stackademic.com/how-to-create-an-accessible-and-responsive-navigati
   
   /* Hover nos links do dropdown */
   .dropdown-content a:hover {
-    background-color: #ddd;
+    background-color: var(--background);
   }
   
