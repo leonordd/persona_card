@@ -21,7 +21,8 @@ on.addEventListener("click", function(){
     mask.classList.add("mask");
 })*/
 
-
+const slider = document.getElementById('font-size-mask');
+const heightValueLabel = document.getElementById('mask-height-value');
 
 const toggleSwitch = document.getElementById('toggleSwitch');
         const statusText = document.getElementById('status');
@@ -30,8 +31,16 @@ const toggleSwitch = document.getElementById('toggleSwitch');
             if (toggleSwitch.checked) {
                 statusText.textContent = 'ON';
                 mask.classList.add("mask");
+                slider.disabled = false;
             } else {
                 statusText.textContent = 'OFF';
                 mask.classList.remove("mask");
+                slider.disabled = true;
             }
+});
+
+slider.addEventListener('input', function(event) {
+  const heightValue = event.target.value;
+  document.querySelector('.mask').style.height = `${heightValue}%`;
+  heightValueLabel.textContent = heightValue; // Atualiza o valor no label
 });

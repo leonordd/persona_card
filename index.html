@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" href="components/enlarge_text/text.css"/>
     <link rel="stylesheet" href="css/contrast.css"/>
+    <link rel="stylesheet" href="css/mask.css"/>
     <!--<link rel="stylesheet" href="outros testes/nav_bar/styles.css"/>-->
     
   </head>
@@ -91,9 +92,20 @@
                   <span>Page Mask</span>
                 </button>
                 <div class="dropdown-content">
-                  <div class="slider-container">
-                    Texto
+                  <div class="slider-container" id="mask-nav">
+                      <label class="toggle-button">
+                          <input type="checkbox" id="toggleSwitch">
+                          <span class="slider"></span>
+                      </label>
+              
+                      <span id="status">OFF</span>
                   </div>
+
+                  <div class="slider-container">
+                    <label for="font-size-mask">Height: <span id="mask-height-value"> 10 </span>%</label>
+                    <input type="range" id="font-size-mask" min="0" max="50" value="10" disabled>
+                  </div>
+
                 </div>
               </li>
             </ul>
@@ -123,11 +135,16 @@
 
     <footer><a href="#top">Back to top</a></footer>
 
+     <!-- Elemento da máscara -->
+     <div class="" id="mask">
+     </div>
+
     <script src="js/geral.js"></script>
     <script src="js/nav_bar.js"></script>
 
 
     <script src="components/enlarge_text/text.js"></script>
     <script src="js/contrast.js"></script>
+    <script src="js/mask.js"></script>
   </body>
 </html>

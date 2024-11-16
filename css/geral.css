@@ -58,6 +58,11 @@ body{
     padding-top:150px;
   }
 
+  header{
+    position:relative;
+    z-index: 100;
+  }
+
   footer{
     margin-top:100px;
     margin-bottom:100px;

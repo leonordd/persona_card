@@ -2,28 +2,29 @@
 body {
     margin: 0;
     /*padding: 20px;*/
-    background-color: #f0f0f0;
-    color: #333;
-    height: 100vh;
-    overflow: hidden;
+    /*background-color: #f0f0f0;*/
+    /*color: #333;*/
+    /*height: 100vh;*/
+    /*overflow: hidden;*/
     position: relative;
 }
 
 /* Conteúdo de texto para visualização */
-.content {
+/*.content {
     max-width: 600px;
     margin: 0 auto;
     font-size: 18px;
-}
+}*/
 
 /* Estilo para a máscara */
 .mask {
     position: absolute;
     width: 100%;
-    height: 100px;
+    height: 10%;
     /*border-radius: 50%; /* Define a máscara como circular */
     pointer-events: none;
     box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.8);
+    z-index:1;
     /* O `box-shadow` cria uma sombra grande para escurecer o conteúdo fora da máscara */
 }
 
@@ -56,22 +57,22 @@ body {
     width: 22px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: var(--text-top);
     transition: 0.4s;
     border-radius: 50%;
 }
 
 /* When checked */
-input:checked + .slider {
-    background-color: #2196F3;
+.toggle-button>input:checked + .slider {
+    background-color: var(--back-top);
 }
 
-input:checked + .slider:before {
+.toggle-button>input:checked + .slider:before {
     transform: translateX(30px);
 }
 
 /* Hide the checkbox */
-input {
+.toggle-button>input {
     opacity: 0;
     width: 0;
     height: 0;
@@ -80,5 +81,7 @@ input {
 #mask-nav{
     display:flex;
     align-items: center;
-    gap:2%;
+    justify-content: flex-start;
+    gap:8%;
+    flex-direction: row;
 }
