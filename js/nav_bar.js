@@ -16,14 +16,14 @@ window.addEventListener("load", () => {
     function OpenMenu() {
       this.setAttribute("aria-expanded", "true");
       menuContainer.classList.remove("hide");
-      menuContainer.setAttribute("aria-hidden", "false");
+      //menuContainer.setAttribute("aria-hidden", "false");
       closeMenuIcon.focus();
     }
   
     function CloseMenu() {
       this.setAttribute("aria-expanded", "false");
       menuContainer.classList.add("hide");
-      menuContainer.setAttribute("aria-hidden", "true");
+      //menuContainer.setAttribute("aria-hidden", "true");
       openMenuIcon.focus();
     }
   
