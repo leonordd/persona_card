@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text-to-Speech with Multiple Elements</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .control-panel {
+      margin-top: 20px;
+    }
+    .btn, input[type="range"] {
+      margin-right: 10px;
+    }
+    .btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #45a049;
+    }
+    .highlight-text {
+      background-color: yellow;
+    }
+    .switch-container {
+      display: inline-block;
+      position: relative;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch-container input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider-btn {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+
+    .slider-btn:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      border-radius: 50%;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.4s;
+    }
+
+    input:checked + .slider-btn {
+      background-color: #4CAF50;
+    }
+
+    input:checked + .slider-btn:before {
+      transform: translateX(26px);
+    }
+
+    /* Efeito de cursor pointer */
+    .text-area h2, .text-area p {
+      cursor: pointer;
+    }
+
+    /* Permitir seleção de texto */
+    .text-area span {
+      user-select: text;
+    }
+
+    /* Efeito de hover e ícone ▶ apenas quando o toggle estiver ON */
+    .text-area:not(.disabled) h2:hover, 
+    .text-area:not(.disabled) p:hover {
+      color: #007BFF;
+      text-decoration: underline;
+    }
+
+    .text-area:not(.disabled) h2::after, 
+    .text-area:not(.disabled) p::after {
+      content: ' ▶'; /* Ícone de play */
+      font-size: 1.2em;
+      color: #007BFF;
+      transition: opacity 0.2s ease;
+      opacity: 0;
+    }
+
+    .text-area:not(.disabled) h2:hover::after, 
+    .text-area:not(.disabled) p:hover::after {
+      opacity: 1;
+    }
+
+    /* Desliga o cursor pointer quando o toggle estiver desligado */
+    .text-area.disabled h2, .text-area.disabled p {
+      cursor: default;
+    }
+  </style>
+</head>
+<body>
+  <h1>Text-to-Speech with Multiple Elements</h1>
+  <div class="text-area disabled"> <!-- Classe 'disabled' adicionada inicialmente -->
+    <h2>Section 1</h2>
+    <p>This is the first paragraph of section 1.</p>
+    <p>Another text in the same section.</p>
+    <h2>Section 2</h2>
+    <p>This is the first paragraph of section 2.</p>
+    <p>Additional text in section 2.</p>
+  </div>
+
+  <!--<div class="control-panel">
+     On/Off toggle button
+    <label class="switch-container">
+      <input type="checkbox" class="toggle-control">
+      <span class="slider-btn"></span>
+    </label>
+    <label for="speedControl">Speed</label>
+    <input type="range" class="speed-control" min="0.1" max="2" step="0.1" value="1">
+    <span class="speed-value">1</span>  Exibe o valor da velocidade
+  </div>-->
+
+  <script>
+    const toggleControl = document.querySelector('.toggle-control');
+    const speedControl = document.querySelector('.speed-control');
+    const speedValue = document.querySelector('.speed-value');
+    const textArea = document.querySelector('.text-area');
+    let speechUtterance;
+    let speaking = false;
+    let paused = false;
+
+    // Função para envolver palavras em <span> e destacar as palavras durante a fala
+    function createSpeechForElement(element) {
+      const words = element.textContent.split(' ');
+      element.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
+      const wordElements = element.querySelectorAll('span');
+      
+      const newUtterance = new SpeechSynthesisUtterance(element.textContent);
+      newUtterance.rate = parseFloat(speedControl.value);
+
+      let wordIndex = 0;
+      newUtterance.onboundary = (event) => {
+        if (event.name === 'word' && wordElements[wordIndex]) {
+          wordElements.forEach(el => el.classList.remove('highlight-text'));
+          wordElements[wordIndex].classList.add('highlight-text');
+          wordIndex++;
+        }
+      };
+
+      newUtterance.onend = () => {
+        wordElements.forEach(el => el.classList.remove('highlight-text'));
+        speaking = false;
+      };
+
+      return newUtterance;
+    }
+
+    // Função para alterar a velocidade da voz
+    speedControl.addEventListener('input', () => {
+      speedValue.textContent = speedControl.value; 
+      if (speaking && paused) {
+        speechUtterance.rate = parseFloat(speedControl.value);
+      }
+    });
+
+    // Função para controlar a leitura quando o toggle estiver ativado
+    textArea.addEventListener('click', (e) => {
+      if (toggleControl.checked && (e.target.tagName === 'H2' || e.target.tagName === 'P')) {
+        const clickedElement = e.target;
+        const synth = window.speechSynthesis;
+
+        // Se houver leitura em andamento, cancela
+        synth.cancel();
+
+        // Cria o utterance para o texto do elemento
+        speechUtterance = createSpeechForElement(clickedElement);
+        synth.speak(speechUtterance);
+        speaking = true;
+      }
+    });
+
+    // Função para pausar e retomar a leitura
+    function togglePause() {
+      const synth = window.speechSynthesis;
+      if (speaking) {
+        if (paused) {
+          synth.resume();
+        } else {
+          synth.pause();
+        }
+        paused = !paused;
+      }
+    }
+
+    // Controle de ativação/desativação do toggle
+    toggleControl.addEventListener('change', () => {
+      if (!toggleControl.checked) {
+        window.speechSynthesis.cancel();
+        speaking = false;
+        textArea.classList.add('disabled'); // Desativa o hover e o cursor pointer
+      } else {
+        textArea.classList.remove('disabled');
+      }
+    });
+  </script>
+</body>
+</html>

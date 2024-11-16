@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text-to-Speech with Multiple Elements</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #controls {
+      margin-top: 10px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #textContainer > * {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <h1>Text-to-Speech with Multiple Elements</h1>
+  <div id="textContainer">
+    <h2>Section 1</h2>
+    <p>This is the first paragraph of section 1.</p>
+    <p>Another text in the same section.</p>
+    <h2>Section 2</h2>
+    <p>This is the first paragraph of section 2.</p>
+    <p>Additional text in section 2.</p>
+  </div>
+
+  <div id="controls">
+    <button id="playPauseButton">Play</button>
+    <button id="restartButton">Restart</button>
+  </div>
+
+  <script>
+    const playPauseButton = document.getElementById('playPauseButton');
+    const restartButton = document.getElementById('restartButton');
+    const textContainer = document.getElementById('textContainer');
+    let utterance;
+    let isPaused = false;
+    let isSpeaking = false;
+
+    // Função para envolver as palavras em <span> e destacar as palavras à medida que são ditadas
+    function createUtteranceForElement(element) {
+      const words = element.textContent.split(' ');
+      element.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
+      const wordElements = element.querySelectorAll('span');
+      
+      const newUtterance = new SpeechSynthesisUtterance(element.textContent);
+      let wordIndex = 0;
+
+      newUtterance.onboundary = (event) => {
+        if (event.name === 'word' && wordElements[wordIndex]) {
+          wordElements.forEach(el => el.classList.remove('highlight'));
+          wordElements[wordIndex].classList.add('highlight');
+          wordIndex++;
+        }
+      };
+
+      // Resetar destaques quando a leitura terminar
+      newUtterance.onend = () => {
+        wordElements.forEach(el => el.classList.remove('highlight'));
+        playPauseButton.textContent = 'Play'; // Alterar para Play após o fim
+        isSpeaking = false;
+      };
+
+      return newUtterance;
+    }
+
+    // Evento de clique para iniciar a leitura do elemento específico
+    textContainer.addEventListener('click', (e) => {
+      if (e.target && (e.target.tagName === 'H2' || e.target.tagName === 'P')) {
+        const clickedElement = e.target;
+        const synth = window.speechSynthesis;
+
+        // Se houver leitura em andamento, cancela
+        synth.cancel();
+
+        // Cria o utterance para o texto do elemento
+        utterance = createUtteranceForElement(clickedElement);
+        synth.speak(utterance);
+
+        playPauseButton.textContent = 'Pause'; // Alterar para Pause quando iniciar
+        isSpeaking = true;
+      }
+    });
+
+    // Função para reiniciar a leitura do texto completo
+    restartButton.addEventListener('click', () => {
+      const synth = window.speechSynthesis;
+      synth.cancel(); // Cancela qualquer leitura em andamento
+
+      // Cria o utterance para o texto completo
+      utterance = createUtteranceForElement(textContainer);
+      synth.speak(utterance);
+
+      playPauseButton.textContent = 'Pause'; // Alterar para Pause
+      isSpeaking = true;
+    });
+
+    // Função para controlar o Play/Pause
+    playPauseButton.addEventListener('click', () => {
+      const synth = window.speechSynthesis;
+
+      if (isSpeaking) {
+        // Pausa ou retoma a leitura
+        if (isPaused) {
+          synth.resume();
+          playPauseButton.textContent = 'Pause';
+        } else {
+          synth.pause();
+          playPauseButton.textContent = 'Play';
+        }
+        isPaused = !isPaused;
+      } else {
+        // Inicia a leitura do texto completo
+        const fullText = textContainer.textContent.trim();
+        utterance = new SpeechSynthesisUtterance(fullText);
+        synth.speak(utterance);
+        playPauseButton.textContent = 'Pause'; // Alterar para Pause
+        isSpeaking = true;
+      }
+    });
+  </script>
+</body>
+</html>

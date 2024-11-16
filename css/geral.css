@@ -15,6 +15,9 @@
   --background: #0b1012;
   --back-top: white;
   --text-top: #002A3B;
+  --text-listen: #00648D;
+  --text-highlight: #FFE89E;
+
 }
 
 [data-selected-theme="white"] {
@@ -24,6 +27,8 @@
   --background: #FBFCFF;
   --back-top: #002A3B;
   --text-top: white;
+  --text-listen: #00648D;
+  --text-highlight: #FFE89E;
 }
 
 /*[data-selected-theme="pink"] {

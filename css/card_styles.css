@@ -132,12 +132,12 @@ a{
     scroll-behavior: smooth;
 }
 
-  .scroll-page {
+  /*.scroll-page {
     display: flex;
     align-items: center;
     justify-content: left;
     width:100%;
-  }
+  }*/
 
 @media screen and (max-width: 1376px) {
 

@@ -25,18 +25,18 @@ const slider = document.getElementById('font-size-mask');
 const heightValueLabel = document.getElementById('mask-height-value');
 
 const toggleSwitch = document.getElementById('toggleSwitch');
-        const statusText = document.getElementById('status');
+const statusText = document.getElementById('status');
 
-        toggleSwitch.addEventListener('change', () => {
-            if (toggleSwitch.checked) {
-                statusText.textContent = 'ON';
-                mask.classList.add("mask");
-                slider.disabled = false;
-            } else {
-                statusText.textContent = 'OFF';
-                mask.classList.remove("mask");
-                slider.disabled = true;
-            }
+toggleSwitch.addEventListener('change', () => {
+    if (toggleSwitch.checked) {
+        statusText.textContent = 'ON';
+        mask.classList.add("mask");
+        slider.disabled = false;
+    } else {
+        statusText.textContent = 'OFF';
+        mask.classList.remove("mask");
+        slider.disabled = true;
+    }
 });
 
 slider.addEventListener('input', function(event) {
