@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="img/png" href="data/icons/access.svg">
+
+    <title>Persona Card</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/geral.css" />
+    <link rel="stylesheet" href="css/card_styles.css" />
+    <link rel="stylesheet" href="css/nav_bar.css" />
+
+    <link rel="stylesheet" href="components/enlarge_text/text.css"/>
+    <link rel="stylesheet" href="css/contrast.css"/>
+    <link rel="stylesheet" href="css/mask.css"/>
+    <link rel="stylesheet" href="css/text_to_speech.css"/>
+    <!--<link rel="stylesheet" href="outros testes/nav_bar/styles.css"/>-->
+    
+  </head>
+  <body>
+    <header id="top">
+      <nav>
+        <div class="mobile-header" >
+          <a href="index.html" id="logo">          
+            <img src="data/access.svg" alt="accessibility icon" width="39" height="43.33">
+            <div id="logotipo">Persona Card</div>
+          </a>
+          <button aria-expanded="false" aria-haspopup="true" aria-controls="menu-wrapper" class="" id="open-menu">
+            <img src="data/icons/closed.svg" alt="open navigation menu" id="open-menu"/>
+          </button>
+        </div>
+
+        <div class="hide transparent" id="menu-container" aria-hidden="true"> 
+          <div class="bg-white">
+            <ul role="menu" id="menu-wrapper" class="navigation-menu"  aria-labelledby="open-menu">
+              <li class="menu-icon">
+                <button aria-expanded="false" class="" id="close-menu">
+                  <img src="data/icons/opened.svg" alt="close navigation menu" id="close-menu">
+                </button>
+              </li>
+
+              <li class="dropdown">
+                <!--<button onClick="myFunction()" class="dropbtn">
+                  <img class="icon" src="data/icons/text-to-speech.svg" alt="text-to-speech icon representation">
+                  <span>Listen</span>
+                </button>-->
+                <button class="dropbtn">
+                  <img class="icon" src="data/icons/text-to-speech.svg" alt="text-to-speech icon representation">
+                  <span>Listen</span>
+                </button>
+                
+                <div class="dropdown-content">
+                  <div class="slider-container" id="voice">
+                      <!-- On/Off toggle button -->
+                      <label class="toggle-button"><!--switch-button-->
+                        <input type="checkbox" id="voiceToggle">
+                        <span class="slider"></span>
+                      </label>
+                      <span id="status2">OFF</span>
+                  </div>
+
+                  <div class="slider-container">
+                      <label for="speechSpeed">Speed: <span id="speedValue">1</span></label>
+                      <input type="range" id="speechSpeed" min="0.1" max="2" step="0.1" value="1">
+                  </div>
+
+                  <div class="slider-container" style="width:200px; border-top:1px solid var(--back-top)">1. Turn ON listening mode. <br> 2. Click on the text you want to listen to</div>
+                </div>
+              </li>
+
+              <li>
+                <button class="dropbtn">
+                  <img class="icon" src="data/icons/contrast.svg" alt="contrast icon representation" >
+                  <span>Change Contrast</span>
+                </button>
+                <div class="dropdown-content">
+                  <div class="theme-switcher slider-container">
+                    <button data-theme="white" aria-pressed="true" class="theme-btn active">White</button>
+                    <button data-theme="black" aria-pressed="false" class="theme-btn">Black</button>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <button class="dropbtn">
+                  <img class="icon" src="data/icons/letter.svg" alt="enlarge text icon representation" >
+                  <span>Enlarge Text</span>
+                </button>
+                <div class="dropdown-content">
+                  <div class="slider-container">
+                    <label for="font-size-slider">Font Size</label>
+                    <input type="range" id="font-size-slider" min="12.5" max="26" value="0">
+                  </div>
+                </div>
+              </li>
+              <li>
+                <button class="dropbtn">
+                  <img class="icon" src="data/icons/mask.svg" alt="mask page icon representation" >
+                  <span>Page Mask</span>
+                </button>
+                <div class="dropdown-content">
+                  <div class="slider-container" id="mask-nav">
+                      <label class="toggle-button">
+                          <input type="checkbox" id="toggleSwitch">
+                          <span class="slider"></span>
+                      </label>
+              
+                      <span id="status">OFF</span>
+                  </div>
+
+                  <div class="slider-container">
+                    <label for="font-size-mask">Height: <span id="mask-height-value"> 10 </span>%</label>
+                    <input type="range" id="font-size-mask" min="0" max="50" value="10" disabled>
+                  </div>
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </nav>
+   </header>
+
+    <main class="container inactive" id="contentArea">
+      <h1>Global citizen with low vision</h1>
+      <!--<img src="data/card.jpg" width="" height="" alt="adult student working on it's computer" id="img-card">-->
+      <!--<img srcset="data/card2.jpg 240vw, data/card.jpg 1200vw" sizes="(min-width: 36em) 33.3vw, 100vw" alt="adult student working on it's computer" id="img-card">-->
+
+      <picture>
+        <source srcset="data/card.jpg" media="(min-width: 1201px)">
+        <source srcset="data/card2.jpg" media="(max-width: 1200px)">
+        <img src="data/card.jpg" alt="adult student working on its computer" id="img-card">
+      </picture>
+
+      <div id="texto" class="scroll-container" tabindex="0">
+        <h2 class="scroll-page" id="page-1">Key-characteristics and abilities</h2>
+        <p >These days, Singapore is a center of the world, and Vishnu is one of its global citizens. After graduating from one of India’s technology colleges, he went to a postgraduate program at the National University of Malaysia. His work on visualizing data landed him a job with a multinational medical technology company. </p>
+
+        <h2 class="scroll-page" id="page-2">The impairment</h2>
+        <p>Vishnu was diagnosed with glaucoma and his eyes have been getting steadily worse, despite treatment. </p>
+
+        <h2 class="scroll-page" id="page-3">Challenges and Solutions</h2>
+        <p>He can adjust his monitor and his phone, but many of the technical programs he uses don’t have many options, so he has started using a screen magnifier and high-contrast mode. He has several mobile phones. One connects him to his family in India, one is for work, and one is for personal use. He’s lucky to have good bandwidth at home and at work. Even so, downloading large pages from European or U.S. servers can be slow. But, if he had one wish, it would be that people would write technical papers and websites more clearly. His English is good, but idiomatic expressions can still be hard.</p>
+      </div>
+    </main>
+
+    <footer><a href="#top">Back to top</a></footer>
+
+     <!-- Elemento da máscara -->
+     <div class="" id="mask">
+     </div>
+
+    <script src="js/geral.js"></script>
+    <script src="js/nav_bar.js"></script>
+
+
+    <script src="components/enlarge_text/text.js"></script>
+    <script src="js/contrast.js"></script>
+    <script src="js/mask.js"></script>
+    <script src="js/text_to_speech.js"></script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+/*Código baseado em 
+https://blog.stackademic.com/how-to-create-an-accessible-and-responsive-navigation-menu-for-screen-reader-users-be97a2158e6c
+*/
+
+
+  /*MOBILE_____________________________*/
+  @media screen and (max-width: 767px) {
+  .flex-3 {
+    align-items: center;
+    gap: 10px;
+    width: auto;
+  }
+  
+  .hide,
+  .nav-menu {
+    display: none;
+  }
+  
+  .transparent {
+    background-color: hsla(0, 0%, 8%, 0.601);
+    position: fixed;
+    inset: 0;
+    width: 100%;
+  }
+  
+  .bg-white {
+    height: 100vh;
+    background-color: var(--nav_bar);
+    position: relative;
+    width: 67%;
+    padding: 10px 15px;
+    margin-left: auto;
+  }
+  
+  .navigation-menu {
+    display: flex;
+    flex-direction: column;
+    /*color: hsl(0, 0%, 41%);*/
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+  
+  .menu-icon {
+    align-self: flex-end;
+  }
+
+  .mobile-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  }
+
+  /*@media only screen and (min-width:601px) and (max-width: 768px) {
+
+  }*/
+
+  /*DESKTOP*/
+  @media screen and (min-width: 768px) {
+    #open-menu,
+    .menu-icon {
+      display: none;
+    }
+  } 
+
+
+  /*drop-down*/
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--background);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Exibe o dropdown quando a classe 'show' é adicionada */
+  .dropdown-content.show {
+    display: block;
+  }
+  
+  /* Estilo dos links dentro do dropdown */
+  .dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Hover nos links do dropdown */
+  .dropdown-content a:hover {
+    background-color: var(--background);
+  }
+  

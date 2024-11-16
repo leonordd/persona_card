@@ -1,0 +1,41 @@
+.dropdown-content{
+  padding:20px;
+  background-color: var(--text-top);
+}
+
+.slider-container {
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    flex-direction: column;
+    padding:15px 0px;
+    gap:10px;
+    background-color: var(--text-top);
+    color:var(--back-top);
+}
+
+.slider-container label{
+  color: var(--text-color2);
+  font-size:var(--normal_text);
+}
+
+.slider-container input{
+  color: var(--text-color2);
+  font-size:var(--normal_text);
+}
+
+.slider-container button{
+  color: var(--text-color2);
+  font-size:1.2rem;
+  padding:3px 10px;
+}
+
+.slider-container button:hover{
+  border:1px solid var(--back-top);
+  border-radius: 3px;
+}
+  
+/*.display-text {
+  text-align: center;
+  padding-top: 2rem;
+}*/

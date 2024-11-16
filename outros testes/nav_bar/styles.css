@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Epilogue", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+  }
+  
+  button,
+  a {
+    all: unset;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover,
+  a:hover{
+    font-weight: 700;
+  }
+  
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid hsl(0, 0%, 8%);
+    outline-offset: 3px;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  .flex-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .flex-3 {
+    align-items: center;
+    gap: 10px;
+    width: auto;
+  }
+  
+  header {
+    padding: 20px 15px;
+    position: relative;
+  }
+  
+  .hide,
+  .nav-menu {
+    display: none;
+  }
+  
+  .transparent {
+    background-color: hsla(0, 0%, 8%, 0.601);
+    position: fixed;
+    inset: 0;
+    width: 100%;
+  }
+  
+  .bg-white {
+    height: 100vh;
+    background-color: hsl(0, 0%, 98%);
+    position: relative;
+    width: 67%;
+    padding: 10px 15px;
+    margin-left: auto;
+  }
+  
+  .navigation-menu {
+    display: flex;
+    flex-direction: column;
+    color: hsl(0, 0%, 41%);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+  
+  .menu-icon {
+    align-self: flex-end;
+  }
+  
+  .actions {
+    align-self: center;
+    width: 100%;
+  }
+  
+  .action-btns {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .action-btns li,
+  .action-btns li a {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .action-btns li a {
+    display: block;
+    padding: 10px 0;
+  }
+  
+  .register-btn {
+    border-radius: 10px;
+    border: 1px solid hsl(0, 0%, 41%);
+  }
+  
+  @media screen and (min-width: 767px) {
+    header {
+      gap: 50px;
+    }
+    .mobile-header {
+      max-width: 84px;
+    }
+  
+    #open-menu,
+    .menu-icon {
+      display: none;
+    }
+  
+    .transparent {
+      display: block;
+      background: none;
+      position: static;
+    }
+  
+    .bg-white {
+      background: inherit;
+      width: 100%;
+      margin: 0;
+      height: auto;
+    }
+  
+    .navigation-menu,
+    .action-btns {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .actions {
+      align-self: flex-end;
+      max-width: 20%;
+      margin-left: auto;
+    }
+    
+    .register-btn
+    {
+      padding: 0 8px;
+    }
+  } 

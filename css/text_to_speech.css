@@ -1,0 +1,137 @@
+  
+  #settingsPanel {
+    /*margin-top: 20px;*/
+  }
+  
+  /*button, input[type="range"] {
+    margin-right: 10px;
+  }*/
+  
+  /*button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }*/
+  
+  /*button:hover {
+    background-color: #45a049;
+  }*/
+  
+  .highlighted {
+    background-color: var(--text-highlight);
+  }
+  
+  .switch-button {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch-button input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /*.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #4CAF50;
+  }*/
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+
+  /* Adiciona cursor pointer para os elementos h1 e img */
+#contentArea h1, #contentArea h2, #contentArea p, #contentArea img {
+    cursor: pointer;
+  }
+  
+  #contentArea:not(.inactive) h1:hover::after,
+  #contentArea:not(.inactive) h2:hover::after, 
+  #contentArea:not(.inactive) p:hover::after,
+  #contentArea:not(.inactive) img:hover::after {
+    opacity: 1; /* Exibe o ícone quando o elemento é passado com o mouse */
+  }
+
+
+  #contentArea h2, #contentArea p {
+    cursor: pointer;  /* Adiciona o estilo de cursor pointer quando o texto for interativo */
+  }
+  
+  
+#voice{
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:8%;
+    flex-direction: row;
+}
+
+
+.toggle-button input:focus, .toggle-button:focus-within {
+  outline: 3px solid #4D90FE; /* Apenas para os botões de alternância */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+/*MOBILE*/
+@media only screen and (max-width: 768px){
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width:768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  /* Efeito de hover para h1, h2, p e img quando o toggle estiver ON */
+  #contentArea:not(.inactive) h1:hover, 
+  #contentArea:not(.inactive) h2:hover, 
+  #contentArea:not(.inactive) p:hover,
+  #contentArea:not(.inactive) img:hover {
+    color: var(--text-listen); /* Pode alterar para a cor que preferir */
+    /*text-decoration: underline;*/
+  }
+  
+  /* Adiciona ícone ▶ ao lado de h1, h2, p e img quando o toggle estiver ON */
+  #contentArea:not(.inactive) h1::after,
+  #contentArea:not(.inactive) h2::after, 
+  #contentArea:not(.inactive) p::after,
+  #contentArea:not(.inactive) img::after {
+    content: ' ▶'; /* Ícone de play */
+    color: var(--text-listen);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+}
