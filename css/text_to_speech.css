@@ -75,26 +75,6 @@
     cursor: pointer;
   }
   
-  /* Efeito de hover para h1, h2, p e img quando o toggle estiver ON */
-  #contentArea:not(.inactive) h1:hover, 
-  #contentArea:not(.inactive) h2:hover, 
-  #contentArea:not(.inactive) p:hover,
-  #contentArea:not(.inactive) img:hover {
-    color: var(--text-listen); /* Pode alterar para a cor que preferir */
-    /*text-decoration: underline;*/
-  }
-  
-  /* Adiciona ícone ▶ ao lado de h1, h2, p e img quando o toggle estiver ON */
-  #contentArea:not(.inactive) h1::after,
-  #contentArea:not(.inactive) h2::after, 
-  #contentArea:not(.inactive) p::after,
-  #contentArea:not(.inactive) img::after {
-    content: ' ▶'; /* Ícone de play */
-    color: var(--text-listen);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-  
   #contentArea:not(.inactive) h1:hover::after,
   #contentArea:not(.inactive) h2:hover::after, 
   #contentArea:not(.inactive) p:hover::after,
@@ -120,4 +100,38 @@
 .toggle-button input:focus, .toggle-button:focus-within {
   outline: 3px solid #4D90FE; /* Apenas para os botões de alternância */
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+/*MOBILE*/
+@media only screen and (max-width: 768px){
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width:768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  /* Efeito de hover para h1, h2, p e img quando o toggle estiver ON */
+  #contentArea:not(.inactive) h1:hover, 
+  #contentArea:not(.inactive) h2:hover, 
+  #contentArea:not(.inactive) p:hover,
+  #contentArea:not(.inactive) img:hover {
+    color: var(--text-listen); /* Pode alterar para a cor que preferir */
+    /*text-decoration: underline;*/
+  }
+  
+  /* Adiciona ícone ▶ ao lado de h1, h2, p e img quando o toggle estiver ON */
+  #contentArea:not(.inactive) h1::after,
+  #contentArea:not(.inactive) h2::after, 
+  #contentArea:not(.inactive) p::after,
+  #contentArea:not(.inactive) img::after {
+    content: ' ▶'; /* Ícone de play */
+    color: var(--text-listen);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
 }

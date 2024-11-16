@@ -1,10 +1,15 @@
+.dropdown-content{
+  padding:20px;
+  background-color: var(--text-top);
+}
+
 .slider-container {
     display: flex;
     justify-content: center;
     /*align-items: center;*/
     flex-direction: column;
-    padding:20px 10px;
-    gap:5px;
+    padding:15px 0px;
+    gap:10px;
     background-color: var(--text-top);
     color:var(--back-top);
 }
