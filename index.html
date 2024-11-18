@@ -31,7 +31,7 @@
             <img src="data/access.svg" alt="accessibility icon" width="39" height="43">
             <div id="logotipo">Persona Card</div>
           </a>
-          <button aria-expanded="false" aria-haspopup="true" aria-controls="menu-wrapper" class="" id="open-menu">
+          <button aria-expanded="false" aria-haspopup="true" aria-controls="menu-wrapper" class="" id="open-menu" aria-label="Open Menu">
             <img src="data/icons/closed.svg" alt="open navigation menu"/>
           </button>
         </div>
@@ -40,7 +40,7 @@
           <div class="bg-white">
             <ul role="menu" id="menu-wrapper" class="navigation-menu"  aria-labelledby="open-menu">
               <li class="menu-icon">
-                <button aria-expanded="false" class="" id="close-menu">
+                <button aria-expanded="false" class="" id="close-menu" aria-label="Close menu">
                   <img src="data/icons/opened.svg" alt="close navigation menu">
                 </button>
               </li>
@@ -50,7 +50,7 @@
                   <img class="icon" src="data/icons/text-to-speech.svg" alt="text-to-speech icon representation">
                   <span>Listen</span>
                 </button>-->
-                <button class="dropbtn">
+                <button class="dropbtn" aria-label="dropdown">
                   <img class="icon" src="data/icons/text-to-speech.svg" alt="text-to-speech icon representation">
                   <span>Listen</span>
                 </button>
@@ -75,20 +75,20 @@
               </li>
 
               <li>
-                <button class="dropbtn">
+                <button class="dropbtn" aria-label="dropdown">
                   <img class="icon" src="data/icons/contrast.svg" alt="contrast icon representation" >
                   <span>Change Contrast</span>
                 </button>
                 <div class="dropdown-content">
                   <div class="theme-switcher slider-container">
-                    <button data-theme="white" aria-pressed="true" class="theme-btn active">White</button>
-                    <button data-theme="black" aria-pressed="false" class="theme-btn">Black</button>
+                    <button data-theme="white" aria-pressed="true" class="theme-btn active" aria-label="active white mode">White</button>
+                    <button data-theme="black" aria-pressed="false" class="theme-btn" aria-label="active black mode">Black</button>
                   </div>
                 </div>
               </li>
 
               <li>
-                <button class="dropbtn">
+                <button class="dropbtn" aria-label="dropdown">
                   <img class="icon" src="data/icons/letter.svg" alt="enlarge text icon representation" >
                   <span>Enlarge Text</span>
                 </button>
@@ -100,7 +100,7 @@
                 </div>
               </li>
               <li>
-                <button class="dropbtn">
+                <button class="dropbtn" aria-label="dropdown">
                   <img class="icon" src="data/icons/mask.svg" alt="mask page icon representation" >
                   <span>Page Mask</span>
                 </button>

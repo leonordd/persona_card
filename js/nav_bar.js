@@ -88,8 +88,3 @@ function closeAllDropdowns() {
   const dropdowns = document.querySelectorAll('.dropdown-content.show');
   dropdowns.forEach((dropdown) => dropdown.classList.remove('show'));
 }
-
-  
-
-  
-  
