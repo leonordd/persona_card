@@ -37,7 +37,7 @@ buttons.forEach((button) => {
    button.addEventListener('click', handleThemeSelection);
 });
 
-  // Seleciona todos os botões do tema
+  // Seleciona todos os botões
   const themeButtons = document.querySelectorAll('.theme-btn');
 
   themeButtons.forEach(button => {

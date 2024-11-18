@@ -13,8 +13,6 @@
     border: 1px solid var(--back-top);
   }
 
-  /* Aparência ao passar o mouse (opcional) */
   .theme-btn:hover {
-    /*border: 1px solid #555;*/
     border: 1px solid var(--back-top); /* Cor da borda */
   }

@@ -6,20 +6,8 @@
      const mouseY = event.pageY;
 
      // Atualiza a posição da máscara para seguir o cursor
-     //mask.style.left = (mouseX - 250) + 'px';
      mask.style.top = (mouseY - 50) + 'px';
  });
-
-/*const on = document.querySelector(".on");
-const off = document.querySelector(".off");
-
-off.addEventListener("click", function(){
-    mask.classList.remove("mask");
-})
-
-on.addEventListener("click", function(){
-    mask.classList.add("mask");
-})*/
 
 const slider = document.getElementById('font-size-mask');
 const heightValueLabel = document.getElementById('mask-height-value');

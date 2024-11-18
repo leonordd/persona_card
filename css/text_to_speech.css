@@ -1,25 +1,4 @@
-  
-  #settingsPanel {
-    /*margin-top: 20px;*/
-  }
-  
-  /*button, input[type="range"] {
-    margin-right: 10px;
-  }*/
-  
-  /*button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }*/
-  
-  /*button:hover {
-    background-color: #45a049;
-  }*/
-  
+  /*Text to speech Code*/
   .highlighted {
     background-color: var(--text-highlight);
   }
@@ -37,34 +16,6 @@
     height: 0;
   }
   
-  /*.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 34px;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    border-radius: 50%;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: 0.4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #4CAF50;
-  }*/
-  
   input:checked + .slider:before {
     transform: translateX(26px);
   }
@@ -79,12 +30,12 @@
   #contentArea:not(.inactive) h2:hover::after, 
   #contentArea:not(.inactive) p:hover::after,
   #contentArea:not(.inactive) img:hover::after {
-    opacity: 1; /* Exibe o ícone quando o elemento é passado com o mouse */
+    opacity: 1; /* Mostra o ícone quando o elemento é passado com o mouse */
   }
 
 
   #contentArea h2, #contentArea p {
-    cursor: pointer;  /* Adiciona o estilo de cursor pointer quando o texto for interativo */
+    cursor: pointer;  /* Adiciona o estilo de cursor pointer quando o texto permitir interação */
   }
   
   
@@ -98,7 +49,7 @@
 
 
 .toggle-button input:focus, .toggle-button:focus-within {
-  outline: 3px solid #4D90FE; /* Apenas para os botões de alternância */
+  outline: 3px solid #4D90FE;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
@@ -120,8 +71,7 @@
   #contentArea:not(.inactive) h2:hover, 
   #contentArea:not(.inactive) p:hover,
   #contentArea:not(.inactive) img:hover {
-    color: var(--text-listen); /* Pode alterar para a cor que preferir */
-    /*text-decoration: underline;*/
+    color: var(--text-listen);
   }
   
   /* Adiciona ícone ▶ ao lado de h1, h2, p e img quando o toggle estiver ON */

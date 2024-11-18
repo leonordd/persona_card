@@ -31,26 +31,11 @@
   --text-highlight: #FFE89E;
 }
 
-/*[data-selected-theme="pink"] {
-  --color-background: #DFB2F4;
-  --color-text: #463546;
-  --color-accent: #F06EFC;
-}
-
-[data-selected-theme="orange"] {
-  --color-background: #FA7D61;
-  --color-text: #1E1E24;
-  --color-accent: #F3601C;
-}*/
-
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
     font-family: "Lato", sans-serif;
-    /*--nav_bar: #002A3B;
-    --text-color: white;
-    --background-color: #FBFCFF;*/
     list-style: none;
     --normal_text: 1.2rem;
 }

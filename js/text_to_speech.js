@@ -1,4 +1,4 @@
-// Elementos do DOM
+// Elementos da DOM
 const voiceToggle = document.getElementById('voiceToggle');
 const contentArea = document.getElementById('contentArea');
 const speedRange = document.getElementById('speechSpeed'); 
@@ -8,7 +8,7 @@ let utterance;
 let isSpeaking = false;
 let isPaused = false;
 
-// Função para envolver palavras em spans e destacar palavras enquanto são ditadas
+// Função para devolver palavras em spans e destacar palavras enquanto são ditadas
 function createUtteranceForElement(element) {
   const words = element.textContent.split(/\s+/); // Divide as palavras, preservando espaços
   element.innerHTML = ''; // Limpa o conteúdo anterior
@@ -19,7 +19,7 @@ function createUtteranceForElement(element) {
     span.textContent = word; // Define o texto do span
     element.appendChild(span);
 
-    // Adiciona um espaço após a palavra, exceto para a última
+    // Adiciona um espaço após a palavra, exceto na última
     if (index < words.length - 1) {
       element.appendChild(document.createTextNode(' '));
     }
@@ -41,7 +41,7 @@ function createUtteranceForElement(element) {
 
   newUtterance.onend = () => {
     wordElements.forEach(el => el.classList.remove('highlighted'));
-    isSpeaking = false; // A leitura terminou
+    isSpeaking = false; // A leitura termina
   };
 
   return newUtterance;
@@ -92,14 +92,14 @@ contentArea.addEventListener('click', (e) => {
 
 const status2Text = document.getElementById('status2');
 
-// Controle de ativação/desativação do switch de voz
+// Controla o ativar/desativar do botão de voz voz
 voiceToggle.addEventListener('change', () => {
   if (!voiceToggle.checked) {
-    window.speechSynthesis.cancel(); // Cancela a leitura se desligar
-    isSpeaking = false; // Marca como não falando
+    window.speechSynthesis.cancel(); // Cancela a leitura se OFF
+    isSpeaking = false;
     contentArea.classList.add('inactive'); // Desabilita navegação de texto com o teclado
 
-    // Remover o destaque (highlight) de todas as palavras no texto
+    // Remove o destaque (highlight) de todas as palavras no texto
     const allHighlightedWords = contentArea.querySelectorAll('.highlighted');
     allHighlightedWords.forEach(word => word.classList.remove('highlighted'));
 
@@ -109,9 +109,9 @@ voiceToggle.addEventListener('change', () => {
       element.removeAttribute('tabindex');
     });
   } else {
-    contentArea.classList.remove('inactive'); // Habilita navegação de texto com o teclado
+    contentArea.classList.remove('inactive'); // Permite a navegação de texto com o teclado
 
-    // Adiciona tabindex para permitir navegação via tab
+    //Adiciona o tabindex para permitir navegação pelo teclado (tab)
     const allTextElements = contentArea.querySelectorAll('h1, h2, p, img');
     allTextElements.forEach(element => {
       element.setAttribute('tabindex', '0'); // Define o tabindex para permitir foco
@@ -125,7 +125,7 @@ voiceToggle.addEventListener('change', () => {
 });
 
 
-// Ativar leitura com a tecla Enter
+// Ativa a leitura com a tecla Enter
 contentArea.addEventListener('keydown', (e) => {
   if (voiceToggle.checked && (e.key === 'Enter' || e.key === ' ')) {
     const focusedElement = document.activeElement;
@@ -153,7 +153,7 @@ contentArea.addEventListener('keydown', (e) => {
         // Cria o utterance para o texto do elemento
         utterance = createUtteranceForElement(focusedElement);
         synth.speak(utterance);
-        isSpeaking = true; // Marca como falando
+        isSpeaking = true;
       }
     }
   }
@@ -161,18 +161,18 @@ contentArea.addEventListener('keydown', (e) => {
 
 
 // Seleção dos elementos de toggle
-const toggleButtons = document.querySelectorAll('.toggle-button input'); // Seleciona todos os inputs tipo checkbox (toggle buttons)
+const toggleButtons = document.querySelectorAll('.toggle-button input'); // Seleciona todos os inputs do tipo checkbox (toggle buttons)
 
-// Função para adicionar suporte ao teclado para alternar o estado dos botões
+// Função que adiciona suporte ao teclado para alternar o estado dos botões
 toggleButtons.forEach(toggleButton => {
   // Adiciona tabindex para permitir a navegação via teclado
   toggleButton.setAttribute('tabindex', '0'); 
 
-  // Adiciona evento de keydown para permitir alternância com 'Enter' ou 'Space'
+  // Adiciona evento de keydown para permitir alternar entre 'Enter' ou 'Space'
   toggleButton.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
       toggleButton.checked = !toggleButton.checked;  // Alterna o estado do toggle
-      toggleButton.dispatchEvent(new Event('change'));  // Dispara o evento 'change' para que o código já existente seja acionado
+      toggleButton.dispatchEvent(new Event('change'));  // Corre o evento 'change'
     }
   });
 });
@@ -181,37 +181,25 @@ toggleButtons.forEach(toggleButton => {
 toggleButtons.forEach(toggleButton => {
   toggleButton.addEventListener('change', () => {
     const toggleLabel = toggleButton.closest('.toggle-button');
-    
-    /*if (toggleButton.checked) {
-      // Atualiza o status para ON
-      toggleLabel.querySelector('span').textContent = 'ON';
-    } else {
-      // Atualiza o status para OFF
-      toggleLabel.querySelector('span').textContent = 'OFF';
-    }*/
 
-    // Lógica específica para o estado de cada toggle, por exemplo:
+    // Lógica específica para o estado de cada toggle
     if (toggleButton.id === 'voiceToggle') {
-      // Altera o comportamento de leitura com voz
+      // Altera o comportamento de leitura com voz e ativa ou desativa a leitura de voz
       if (toggleButton.checked) {
-        // Ativar a leitura em voz
         contentArea.classList.remove('inactive');
       } else {
-        // Desativar a leitura em voz
         contentArea.classList.add('inactive');
-        window.speechSynthesis.cancel(); // Cancela a leitura em andamento
+        window.speechSynthesis.cancel();
         isSpeaking = false;
       }
     } else if (toggleButton.id === 'toggleSwitch') {
-      // Lógica do switch de "Máscara de página"
       const mask = document.getElementById('mask');
       if (toggleButton.checked) {
-        mask.style.display = 'block';  // Ativa a máscara de página
+        mask.style.display = 'block';
       } else {
-        mask.style.display = 'none';  // Desativa a máscara de página
+        mask.style.display = 'none';
       }
     }
-    // Adicione mais casos conforme o número de toggle buttons na página
   });
 });
 
