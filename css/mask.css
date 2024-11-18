@@ -1,31 +1,17 @@
-/* Estilos básicos para o conteúdo do body */
+/* Base para o conteúdo do body */
 body {
     margin: 0;
-    /*padding: 20px;*/
-    /*background-color: #f0f0f0;*/
-    /*color: #333;*/
-    /*height: 100vh;*/
-    /*overflow: hidden;*/
     position: relative;
 }
 
-/* Conteúdo de texto para visualização */
-/*.content {
-    max-width: 600px;
-    margin: 0 auto;
-    font-size: 18px;
-}*/
-
-/* Estilo para a máscara */
+/* máscara de página */
 .mask {
     position: absolute;
     width: 100%;
     height: 10%;
-    /*border-radius: 50%; /* Define a máscara como circular */
     pointer-events: none;
-    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.8);     /* O `box-shadow` cria uma sombra grande para escurecer o conteúdo fora da máscara */
     z-index:1;
-    /* O `box-shadow` cria uma sombra grande para escurecer o conteúdo fora da máscara */
 }
 
 
@@ -37,7 +23,7 @@ body {
     height: 30px;
 }
 
-/* The slider */
+/* slider */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -62,7 +48,6 @@ body {
     border-radius: 50%;
 }
 
-/* When checked */
 .toggle-button>input:checked + .slider {
     background-color: var(--back-top);
 }

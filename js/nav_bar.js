@@ -16,14 +16,12 @@ window.addEventListener("load", () => {
     function OpenMenu() {
       this.setAttribute("aria-expanded", "true");
       menuContainer.classList.remove("hide");
-      //menuContainer.setAttribute("aria-hidden", "false");
       closeMenuIcon.focus();
     }
   
     function CloseMenu() {
       this.setAttribute("aria-expanded", "false");
       menuContainer.classList.add("hide");
-      //menuContainer.setAttribute("aria-hidden", "true");
       openMenuIcon.focus();
     }
   
@@ -35,34 +33,11 @@ window.addEventListener("load", () => {
 
   });
 
-  /*DROPDOWN MENU PARA TODOS OS BOTÕES*/
-  /*function myFunction(event) {
-    event.stopPropagation(); // Impede a propagação do clique
-  
-    // Seleciona o dropdown pelo ID
-    const dropdown = document.getElementById("myDropdown");
-    
-    // Alterna a classe 'show' no dropdown
-    dropdown.classList.toggle("show");
-  }
-  
-  // Fecha o dropdown se o usuário clicar fora dele
-  window.onclick = function(event) {
-    const dropdowns = document.getElementsByClassName("dropdown-content");
-  
-    // Itera sobre todos os dropdowns para fechá-los
-    for (let i = 0; i < dropdowns.length; i++) {
-      const openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  };*/
 
-  // Seleciona o contêiner pai da navegação
+  // Seleciona o menu-wrapper
 const navMenu = document.querySelector('#menu-wrapper');
 
-// Adiciona o evento de clique ao contêiner pai
+// Adiciona o evento de clique ao container
 navMenu.addEventListener('click', function(event) {
   // Verifica se o alvo do clique é um botão com a classe 'dropbtn'
   if (event.target.closest('.dropbtn')) {
@@ -74,7 +49,7 @@ navMenu.addEventListener('click', function(event) {
 
     // Alterna a visibilidade do menu dropdown correspondente
     dropdown.classList.toggle('show');
-    event.stopPropagation(); // Evita que o clique feche o menu via window.onclick
+    event.stopPropagation(); // Evita que o clique feche o menu
   }
 });
 
@@ -88,8 +63,3 @@ function closeAllDropdowns() {
   const dropdowns = document.querySelectorAll('.dropdown-content.show');
   dropdowns.forEach((dropdown) => dropdown.classList.remove('show'));
 }
-
-  
-
-  
-  
